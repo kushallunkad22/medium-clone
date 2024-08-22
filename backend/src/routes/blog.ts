@@ -19,8 +19,7 @@ blogRouter.use("/*" , async (c,next) => {
     try{
     const user = await verify(token , c.env.JWT_SECRET);
     if(user) {
-        //@ts-ignore
-        c.set("userId" , user.userId)
+        c.set("userId" , user.id as string);
         await next();
     }  else{
         c.status(403);
@@ -141,7 +140,7 @@ blogRouter.get('/:id', async (c) => {
             blog
         });
     } catch(e) {
-        c.status(411); // 4
+        c.status(411); 
         return c.json({
             message: "Error while fetching blog post"
         });
