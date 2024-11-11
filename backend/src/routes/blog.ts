@@ -55,7 +55,8 @@ blogRouter.post('/' ,async (c) => {
     data : {
         title : body.title,
         content : body.content,
-        authorId : Number(authorId)
+        authorId : Number(authorId),
+        image : body.image
     }
    })
 
@@ -84,6 +85,7 @@ blogRouter.put('/' , async (c) => {
         data : {
             title : body.title,
             content : body.content,
+            image : body.image
         }
        })
        return c.json({
@@ -104,7 +106,8 @@ blogRouter.get('/bulk', async (c) => {
                 select: {
                     name: true
                 }
-            }
+            },
+            image: true
         }
     });
 
@@ -132,7 +135,8 @@ blogRouter.get('/:id', async (c) => {
                     select: {
                         name: true
                     }
-                }
+                },
+                image : true
             }
         })
     

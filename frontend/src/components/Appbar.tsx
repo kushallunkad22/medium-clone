@@ -1,17 +1,26 @@
-import { Link } from "react-router-dom"
-import { Avatar } from "./BlogCard"
-export const Appbar = () => {
-    return <div className = "border-b flex justify-between px-10 py-3">
-            <Link to={'/blogs'} className="text-md font-semibold">
-                Medium
-            </Link>
-            
-            <div>
-            <Link to={`/publish`}>
-                <button type="button" className="mr-4 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 ">New</button>
-            </Link>
+import { Button } from './Button'
 
-                <Avatar name = "Kushal" />
-            </div>
-    </div>
+export function Appbar() {
+  return (
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 items-center justify-between">
+        <a className="flex items-center space-x-2" href="/">
+          <img src="https://via.placeholder.com/32" alt="Logo" width={32} height={32} />
+          <span className="text-xl font-bold">Medium</span>
+        </a>
+        <nav className="flex items-center space-x-4">
+          <a className="text-sm font-medium hover:underline" href="/about">
+            About
+          </a>
+          <a className="text-sm font-medium hover:underline" href="/contact">
+            Contact
+          </a>
+          <Button variant="outline">
+            <a href="/publish">Publish</a>
+          </Button>
+          <Button>Follow</Button>
+        </nav>
+      </div>
+    </header>
+  )
 }

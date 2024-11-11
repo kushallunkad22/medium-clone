@@ -1,19 +1,20 @@
 import { Link } from "react-router-dom";
 
 interface BlogCardProps {
-    authorName : string;
-    title : string;
-    content : string;
-    publishedDate : string;
-    id : number;
-}
+    authorName: string;
+    title: string;
+    content: string;
+    publishedDate: string;
+    id: number;
+    image: string;
+  }
 
 export const BlogCard = ({
     authorName,
     title,
     content,
     publishedDate,
-    id
+    id,
 } : BlogCardProps) => {
     return <Link to = {`/blog/${id}`}>
     <div className = "border-b border-slate-200 p-4 w-screen max-w-screen-md cursor-pointer">

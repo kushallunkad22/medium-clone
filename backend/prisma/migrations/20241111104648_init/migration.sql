@@ -15,6 +15,7 @@ CREATE TABLE "Post" (
     "content" TEXT NOT NULL,
     "published" BOOLEAN NOT NULL DEFAULT false,
     "authorId" INTEGER NOT NULL,
+    "image" TEXT,
 
     CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
 );
